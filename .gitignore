@@ -22,6 +22,7 @@ config/unicorn.rb
 config/puma.rb
 config/resque.yml
 config/aws.yml
+config/environments/production.rb
 db/data.yml
 .idea
 .DS_Store
