@@ -38,6 +38,10 @@ module Projects
 
       @project.creator = current_user
 
+      @project.import_url ||= @project.name
+
+#File.open('/tmp/args.txt', 'a') { |file| file.write("namespace:#{@project.path_with_namespace}....path:#{@project.import_url}..namespace_id:#{current_user.namespace_id}\n") }
+#File.open('/tmp/projects.txt', 'a') { |file| file.write("#{Project.all}\n\n") }
       # Import project from cloneable resource
       if @project.valid? && @project.import_url.present?
         shell = Gitlab::Shell.new

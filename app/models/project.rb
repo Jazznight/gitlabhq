@@ -81,9 +81,9 @@ class Project < ActiveRecord::Base
   validates_uniqueness_of :name, scope: :namespace_id
   validates_uniqueness_of :path, scope: :namespace_id
 
-  validates :import_url,
-    format: { with: URI::regexp(%w(http https)), message: "should be a valid url" },
-    if: :import?
+  #validates :import_url,
+    #format: { with: URI::regexp(%w(http https)), message: "should be a valid url" },
+    #if: :import?
 
   validate :check_limit, :repo_name
 
