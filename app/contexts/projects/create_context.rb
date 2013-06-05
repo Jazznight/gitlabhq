@@ -44,8 +44,14 @@ module Projects
       end
 
       @project.creator = current_user
-      
-      import_token = @project.import_path = (@project.import_url.present?) ? nil : @project.name
+     
+      @project.import_path = (@project.import_url.present?) ? nil : @project.name
+      if @project.import_url.present? then
+        import_token = @project.import_url
+      else                                                                                
+        import_token = @project.import_path
+      end 
+
 
       # Import project from cloneable resource
       if @project.valid? && ( @project.import_url.present? || @project.import_path.present?)
