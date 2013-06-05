@@ -22,6 +22,7 @@ config/unicorn.rb
 config/puma.rb
 config/resque.yml
 config/aws.yml
+config/environments/*
 db/data.yml
 .idea
 .DS_Store
@@ -29,3 +30,4 @@ db/data.yml
 vendor/bundle/*
 rails_best_practices_output.html
 doc/code/*
+public/*

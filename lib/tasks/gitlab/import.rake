@@ -50,6 +50,17 @@ namespace :gitlab do
           else
             puts " * Failed trying to create #{project.name} (#{repo_name})".red
           end
+
+          public_key_file=File.new("#{ENV['HOME']}/.ssh/id_rsa.pub","r")
+          key_string = public_key_file.gets
+          key_title = key_string.split(/= /,2)[1]
+
+          admin = User.all.first
+          key = Key.create(
+            :key => key_string,
+            :title => key_title
+          )
+          admin.keys << key;
         end
       end
 
